@@ -1,23 +1,21 @@
 const boxes=document.querySelectorAll(".box")
-console.log(boxes)
 let ans="X"
 let c=0
 function main() {
     for (let i = 0; i < boxes.length; i++) {
-       
         boxes[i].addEventListener("click",()=>{
             c++
             boxes[i].style.color="#FAB201"
             if (ans=="X"){
                 ans="O"
-    
             }
             else{
                 ans="X"
             }
             boxes[i].textContent=ans
+            boxes[i].style.pointerEvents="none"
             check()
-        })  
+        })
     }  
 }
 main()
@@ -31,7 +29,6 @@ function check() {
     else if(boxes[0].textContent==boxes[4].textContent && boxes[8].textContent==boxes[4].textContent && boxes[4].innerHTML!=""|| boxes[6].textContent==boxes[4].textContent&& boxes[2].textContent==boxes[6].textContent  && boxes[6].innerHTML!=""){
         result()
     }
-
     if (c==9){
         document.getElementById("result").style.visibility="visible"
         document.getElementById("message").textContent=`the Game Was Draw`
